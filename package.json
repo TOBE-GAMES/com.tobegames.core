@@ -2,7 +2,7 @@
     "name": "com.tobegames.core",
     "displayName": "Tobe Games - Core",
     "version": "0.0.1",
-    "unity": "2019.3.0f6",
+    "unity": "2019",
     "description": "Core package",
     "keywords": [
         "tobe",
