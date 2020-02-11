@@ -1,13 +1,4 @@
 {
     "name": "com.tobegames.core",
-    "displayName": "Tobe Games - Core",
-    "version": "1.0.1",
-    "unity": "2019",
-    "description": "Core package",
-    "keywords": [
-        "tobe",
-        "core",
-        "unity"
-    ],
-    "category": "Unity"
+    "version": "1.0.1"
 }
