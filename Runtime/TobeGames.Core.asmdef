@@ -1,3 +1,4 @@
 ﻿{
-	"name": "TobeGames.Core"
+	"name": "TobeGames.Core",
+	"references": ["Zenject", "Unity.TextMeshPro" ]
 }
