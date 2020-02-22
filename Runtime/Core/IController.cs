@@ -1,7 +1,6 @@
-﻿namespace Tobe.Core
+﻿using System;
+
+namespace Tobe.Core
 {
-    public interface IController
-    {
-      
-    }
+   
 }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace Tobe.Core
 {
-    public class MonoDataSource : MonoBehaviour, IAsyncDataSource<string>
+    public class MonoDataSource : MonoBehaviour, IDataSource<string>
     {
         public string[] data;
 
-        public Task<IEnumerable<string>> GetData()
+        public IEnumerable<string> GetData()
         {
-            return new Task<IEnumerable<string>>(() => data);
+            return data;
         }
     }
+    
+    
+    
 }

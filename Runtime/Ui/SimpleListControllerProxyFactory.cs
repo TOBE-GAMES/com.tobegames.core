@@ -3,16 +3,16 @@ using Zenject;
 
 namespace Tobe.Core
 {
-    public class SimpleListControllerProxyFactory : IFactory<UiLabelControllerProxy>
+    public class SimpleListControllerProxyFactory : IFactory<UiLabelComponent>
     {
-        private readonly UiLabelControllerProxy _prefab;
+        private readonly UiLabelComponent _prefab;
 
-        public SimpleListControllerProxyFactory(UiLabelControllerProxy prefab)
+        public SimpleListControllerProxyFactory(UiLabelComponent prefab)
         {
             _prefab = prefab;
         }
 
-        public UiLabelControllerProxy Create()
+        public UiLabelComponent Create()
         {
             return Object.Instantiate(_prefab);
         }

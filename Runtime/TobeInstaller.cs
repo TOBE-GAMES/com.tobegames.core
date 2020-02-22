@@ -4,7 +4,7 @@ namespace Tobe.Core
 {
     public class TobeInstaller : MonoInstaller
     {
-        public UiLabelControllerProxy prefab;
+        public UiLabelComponent prefab;
 
         public override void InstallBindings()
         {
@@ -12,20 +12,15 @@ namespace Tobe.Core
 
             Container.BindInterfacesAndSelfTo<XmlSerializationProvider>().AsSingle();
 
-           // Container.BindInterfacesAndSelfTo<PrefabFactoryProvider>().AsSingle();
-
-            //Container.Bind<IPrefabFactory<UiLabelControllerProxy>>().To<UiLabelControllerProxyFactory>().AsSingle();
-
-            //Container.BindInterfacesAndSelfTo<ListPrefabRepository>().FromInstance(new ListPrefabRepository(prefab)).AsSingle();
-
+            Container.BindInterfacesAndSelfTo<SimpleObjectManager>().AsTransient();
+            
+            
             Container.BindInterfacesAndSelfTo<ListItemFactory>().AsSingle();
             
-            Container.BindFactory<UiLabelControllerProxy, UiLabelControllerProxy.Factory>()
+            Container.BindFactory<UiLabelComponent, UiLabelComponent.Factory>()
                 .FromComponentInNewPrefab(prefab).AsSingle();
-            
-            Container.BindInterfacesAndSelfTo<ListController>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<UiLabelController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ListManager>().AsSingle();
         }
     }
 }

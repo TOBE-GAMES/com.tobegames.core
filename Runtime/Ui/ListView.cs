@@ -8,15 +8,11 @@ namespace Tobe.Core
     {
         public Transform itemsContainer;
 
-        public abstract TDataModel[] Data { get; }
-
         public Action ListUpdating { get; }
         
         public Action ListUpdated { get; }
         
-        
-        
-        public abstract IAsyncDataSource<TDataModel> DataSource { get; }
+        public abstract IDataSource<TDataModel> DataSource { get; }
         
         public virtual IListContainer Container => this;
 

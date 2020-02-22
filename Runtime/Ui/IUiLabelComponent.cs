@@ -1,6 +1,6 @@
 ﻿namespace Tobe.Core
 {
-    public interface IUiLabelView : IView
+    public interface IUiLabelComponent : IRenderingComponent
     {
       string Text { get; set; }
     }

@@ -8,7 +8,7 @@ namespace Tobe.Core
         
         Action ListUpdated { get; }
         
-        IAsyncDataSource<TDataModel> DataSource { get; }
+        IDataSource<TDataModel> DataSource { get; }
         
         
         IListContainer Container { get; }

@@ -2,19 +2,21 @@
 
 namespace Tobe.Core
 {
-    public class TestBinder : ListDataBinder<string, UiLabelControllerProxy>
+    #pragma warning disable 0649
+
+    public class TestBinder : ListDataBinder<string, UiLabelComponent>
     {
-        [SerializeField] private SimpleListView _simpleListView;
+        [SerializeField] private SimpleListView simpleListView;
 
-        [SerializeField] private SimpleListControllerProxy _controller;
+        [SerializeField] private SimpleListManagerProxy manager;
 
-        protected override IListView<string> View => _simpleListView;
-        
-        protected override IListController Controller => _controller;
+        protected override IListView<string> View => simpleListView;
 
-        protected override void Bind(string model, UiLabelControllerProxy item)
+        protected override IListManager Manager => manager;
+
+        protected override void Bind(string model, UiLabelComponent item)
         {
-            item.SetText(model);
+            item.Text = model;
         }
     }
 }

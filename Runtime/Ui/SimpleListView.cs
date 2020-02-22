@@ -2,16 +2,12 @@
 
 namespace Tobe.Core
 {
-    [RequireComponent(typeof(SimpleListControllerProxy))]
+    [RequireComponent(typeof(SimpleListManagerProxy))]
     public class SimpleListView : ListView<string>
     {
-        public string[] data;
-
-        public override string[] Data => data;
-
         [SerializeField]
         private MonoDataSource monoDataSource;
 
-        public override IAsyncDataSource<string> DataSource => monoDataSource;
+        public override IDataSource<string> DataSource => monoDataSource;
     }
 }

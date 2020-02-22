@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Tobe.Core
 {
-    public class ListController : IListController
+    public class ListManager : IListManager
     {
         private readonly IListItemFactory _listItemFactory;
 
-        public ListController(IListItemFactory listItemFactory)
+        public ListManager(IListItemFactory listItemFactory)
         {
             _listItemFactory = listItemFactory;
         }
@@ -23,11 +24,10 @@ namespace Tobe.Core
 
             container.Clear();
 
-            var data = Task.Run(async () => { return await view.DataSource.GetData(); });
+            var data = view.DataSource.GetData();
 
-            data.Wait();
 
-            foreach (var model in data.Result)
+            foreach (var model in data)
             {
                 var instance = _listItemFactory.Create<TListPrefab>();
 
