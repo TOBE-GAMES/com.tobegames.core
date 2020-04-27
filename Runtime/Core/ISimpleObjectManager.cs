@@ -6,10 +6,6 @@
 
         void Show();
 
-        void Activate();
-
-        void Deactivate();
-
         void ToggleVisible();
     }
 }

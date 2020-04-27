@@ -14,21 +14,31 @@ namespace Tobe.Core
         {
             
         }
+
+
+        private void Update()
+        {
+            OnUpdate();
+        }
+
+        protected virtual void OnUpdate()
+        {
+            
+        }
         
-
-        public bool GetActive()
+        public virtual  bool GetEnabled()
         {
-            return gameObject.activeSelf;
+            return enabled;
         }
 
-        public void SetActive(bool value)
+        public virtual void SetEnabled(bool value)
         {
-            gameObject.SetActive(value);
+            enabled = value;
         }
 
-        public void ToggleActive()
+        public void ToggleEnabled()
         {
-            SetActive(!GetActive());
+            SetEnabled(!GetEnabled());
         }
     }
 }

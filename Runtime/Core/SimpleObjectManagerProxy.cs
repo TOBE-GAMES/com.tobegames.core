@@ -1,9 +1,18 @@
-﻿using Zenject;
+﻿using System.IO;
+using Zenject;
 
 namespace Tobe.Core
 {
     public class SimpleObjectManagerProxy : ManagerProxy<SimpleObjectManager, ISimpleObjectView>, ISimpleObjectManager
     {
+        public class Factory : PlaceholderFactory<ISimpleObjectView, SimpleObjectManager>
+        {
+            public override SimpleObjectManager Create(ISimpleObjectView param)
+            {
+                return new SimpleObjectManager(param);
+            }
+        }
+
         public void Hide()
         {
             Manager.Hide();
@@ -14,16 +23,6 @@ namespace Tobe.Core
             Manager.Show();
         }
 
-        public void Activate()
-        {
-            Manager.Activate();
-        }
-
-        public void Deactivate()
-        {
-            Manager.Deactivate();
-        }
-
         public void ToggleVisible()
         {
             Manager.ToggleVisible();
@@ -31,7 +30,7 @@ namespace Tobe.Core
 
         protected override SimpleObjectManager GetManager(DiContainer container)
         {
-            return container.Instantiate<SimpleObjectManager>(new[] {View});
+            return container.Resolve<Factory>().Create(View);
         }
     }
 }

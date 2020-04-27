@@ -11,27 +11,18 @@
 
         public void Hide()
         {
-            _view.RenderingComponent.SetVisible(false);
+            _view.RenderingComponent.SetEnabled(false);
         }
 
         public void Show()
         {
-            _view.RenderingComponent.SetVisible(true);
+            _view.RenderingComponent.SetEnabled(true);
         }
 
-        public void Activate()
-        {
-            _view.RenderingComponent.SetActive(true);
-        }
-
-        public void Deactivate()
-        {
-            _view.RenderingComponent.SetActive(false);
-        }
-
+      
         public void ToggleVisible()
         {
-            _view.RenderingComponent.ToggleVisible();
+            _view.RenderingComponent.ToggleEnabled();
         }
     }
 }

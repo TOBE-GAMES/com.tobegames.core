@@ -3,7 +3,7 @@
 namespace Tobe.Core
 {
     [RequireComponent(typeof(MeshRenderer))]
-    public class MeshRendererComponent : MonoBehaviour, IRenderingComponent
+    public class MeshRendererComponent : MonoComponent, IRenderingComponent
     {
         private MeshRenderer _meshRenderer;
 
@@ -12,34 +12,15 @@ namespace Tobe.Core
             _meshRenderer = GetComponent<MeshRenderer>();
         }
 
-        public bool GetActive()
-        {
-            return gameObject.activeSelf;
-        }
-
-        public void SetActive(bool value)
-        {
-            gameObject.SetActive(value);
-        }
-
-        public void ToggleActive()
-        {
-            SetActive(!GetActive());
-        }
-
-        public bool GetVisible()
+        public override bool GetEnabled()
         {
             return _meshRenderer.enabled;
         }
 
-        public void SetVisible(bool value)
+        public override void SetEnabled(bool value)
         {
+            base.SetEnabled(value);
             _meshRenderer.enabled = value;
-        }
-
-        public void ToggleVisible()
-        {
-            SetActive(!GetActive());
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Tobe.Core
 
         [SerializeField] private SimpleListManagerProxy manager;
 
+        public ObservableProperty<int> value;
+        
         protected override IListView<string> View => simpleListView;
 
         protected override IListManager Manager => manager;

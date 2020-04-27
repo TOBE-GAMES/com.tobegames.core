@@ -11,6 +11,7 @@ namespace Tobe.Core
 
         protected TView View { get; private set; }
 
+        
         [Inject]
         private void Constructor(DiContainer container)
         {

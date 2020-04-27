@@ -3,9 +3,10 @@
     public interface IComponent
     {
 
-        bool GetActive();        
-        void SetActive(bool value);
-        void ToggleActive();
-
+        bool GetEnabled();        
+        
+        void SetEnabled(bool value);
+        
+        void ToggleEnabled();
     }
 }
